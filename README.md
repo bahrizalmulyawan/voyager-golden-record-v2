@@ -36,6 +36,8 @@ Kemudian buka:
 http://localhost:8000
 ```
 
+https://bahrizalmulyawan.github.io/voy2/src/assets/audio/voyager.mp3
+
 ## 📂 Struktur Utama
 
 ```text
