@@ -1,61 +1,187 @@
+# Golden Record
 
-# [Golden Record Images](https://goldenrecord.netlify.app/)
+A simple web-based audio experience for exploring, uploading, and playing audio files while synchronizing audio with visual content.
 
-Real-time decoding and Audio Visualizer of the 116 images present on the Voyager Golden Record using the browser. The speed in which the images are displayed are not representative of those on the record.
+## ✨ Fitur
 
-Site: <https://goldenrecord.netlify.app/>
+* 🎵 Mendukung file **MP3** dan **WAV**
+* 📤 Upload dan menyimpan audio di browser
+* ▶️ Play / Stop / Mute
+* 📊 Menampilkan progress audio
+* 🖼️ Sinkronisasi audio dengan gambar
+* 📡 Oscilloscope audio secara real-time
+* 📖 Halaman explanation dengan materi PNG
+* 💾 Audio tersimpan menggunakan **IndexedDB**
+* 📱 Mendukung desktop dan mobile
 
-### Table of contents
-- [Images](#images)
-- [Process](#process)
-- [Poor Image Quality?](#poor-image-quality)
-- [Acknowledgements](#acknowledgements)
+## 🚀 Cara Menjalankan
 
-## Images
-https://github.com/MarcBaeuerle/Golden-record/assets/92479171/ce1ff0fe-c4e2-4721-a17a-58d55e8fec1a
+Tidak memerlukan build system.
 
-## Process
-The [Verge's video][verge-video] on decoding the images by hand is what initially sparked my interest. Having only seen the calibration circle that they decoded by hand, I wanted to see if I could do the rest.
+1. Download atau clone repository.
+2. Jalankan menggunakan local server.
+3. Buka `index.html` di browser.
 
-They gave a set of instructions on the steps to follow, despite that and [Ron Barry's article][Ron-article], I was still left scratching my head as not all of the details were clear. Here is a jist of the journey to getting the first calibration image.
+Contoh:
 
-![Process picture 1][process-1]
+```bash
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+python -m http.server 8000
+```
 
-The brief instructions that I followed outlined that each column of the image was about 8ms long. However, this didn't translate well when looking at the audio file, as a file with 44.1kHz sample rate meant that 1ms represented 44 samples which could land on either column. After some digging, I found that with a 44.1kHz sample rate, each line would be exactly 367 samples. Which resulted in this image: 
+Kemudian buka:
 
-![Process picture 2][process-2]
+```text
+http://localhost:8000
+```
 
-Now that the image was somewhat aligned, the slanting became an issue.
-When looking at the audio file through audacity, we can see that the distance between the audio peaks are not exactly 367 samples.
+## 📂 Struktur Utama
 
-![Process picture 3][process-3]
+```text
+index.html
+upload.html
+explanation.html
+js/
+css/
+assets/
+```
 
-This stumped me for quite a while, but it turned out that the distance between every other peak was ALWAYS 367 * 2 sample apart, which represents 2 columns on an image. With that tiny change in the implementation, and some small bug fixes, we get the intended calibration picture.
+## 🎧 Upload Audio
 
-![Process picture 4][process-4]
+Buka **Upload**, pilih file `.mp3` atau `.wav`, lalu gunakan audio tersebut di halaman utama.
 
-After that, it was just rinse and repeat with the other pictures, with the only difference being the color pictures being comprised of 3 overlapping images each representing Red, Green and Blue respectively.
+Audio disimpan secara lokal di browser dan tidak memerlukan server upload.
 
-## Poor Image Quality?
-Malte Gruber gives a good explanation as to why all of the images seem to have artifacts, which is a side effect of the digitization of the record. 
+## 📜 Lisensi
 
-More can be read [here][Malte-explain].
+Silakan tambahkan lisensi proyek sesuai kebutuhan.
 
+---
 
-## Acknowledgements
-- [Ron Barry][Ron-article] 
-  - Very useful instructions and insights through his article
-- [Malte Gruber][Malte-site] 
-  - Useful reference when stuck with some of the HTML Canvas implementations.
+# 中文
 
+## Golden Record
 
-[process-1]: ./src/assets/images/process-1.png
-[process-2]: ./src/assets/images/process-2.png
-[process-3]: ./src/assets/images/process-3.png
-[process-4]: ./src/assets/images/process-4.png
-[verge-video]: https://www.youtube.com/watch?v=RRuovINxpPc&ab_channel=VergeScience
-[Malte-site]: https://maltegruber.github.io/voyager-record-decoder/
-[Malte-explain]: https://github.com/MalteGruber/voyager-record-decoder#audio-file-filtering-artifacts
-[Ron-article]: https://boingboing.net/2017/09/05/how-to-decode-the-images-on-th.html
+一个简单的网页音频项目，用于上传、播放音频，并让音频与视觉内容保持同步。
 
+### ✨ 功能
 
+* 🎵 支持 **MP3 / WAV**
+* 📤 上传并在浏览器中保存音频
+* ▶️ 播放 / 停止 / 静音
+* 📊 显示音频进度
+* 🖼️ 音频与图像同步
+* 📡 实时音频示波器
+* 📖 Explanation 页面与 PNG 内容
+* 💾 使用 **IndexedDB** 本地保存音频
+* 📱 支持桌面和移动设备
+
+### 🚀 运行
+
+```bash
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+python -m http.server 8000
+```
+
+然后打开：
+
+```text
+http://localhost:8000
+```
+
+### 🎧 上传音频
+
+进入 **Upload**，选择 `.mp3` 或 `.wav` 文件即可。
+
+音频保存在浏览器本地，无需上传到服务器。
+
+---
+
+# 한국어
+
+## Golden Record
+
+오디오를 업로드하고 재생하며, 오디오와 시각 콘텐츠를 동기화할 수 있는 간단한 웹 프로젝트입니다.
+
+### ✨ 주요 기능
+
+* 🎵 **MP3 / WAV** 지원
+* 📤 오디오 업로드 및 브라우저 저장
+* ▶️ 재생 / 정지 / 음소거
+* 📊 오디오 진행률 표시
+* 🖼️ 오디오와 이미지 동기화
+* 📡 실시간 오실로스코프
+* 📖 PNG 자료가 포함된 Explanation 페이지
+* 💾 **IndexedDB**를 이용한 로컬 저장
+* 📱 데스크톱 및 모바일 지원
+
+### 🚀 실행 방법
+
+```bash
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+python -m http.server 8000
+```
+
+브라우저에서 다음 주소를 엽니다.
+
+```text
+http://localhost:8000
+```
+
+### 🎧 오디오 업로드
+
+**Upload** 페이지에서 `.mp3` 또는 `.wav` 파일을 선택하면 됩니다.
+
+오디오는 서버가 아닌 브라우저에 로컬로 저장됩니다.
+
+---
+
+# 日本語
+
+## Golden Record
+
+音声ファイルをアップロード・再生し、音声とビジュアルコンテンツを同期できるシンプルなWebプロジェクトです。
+
+### ✨ 主な機能
+
+* 🎵 **MP3 / WAV** 対応
+* 📤 音声のアップロードとブラウザ保存
+* ▶️ 再生 / 停止 / ミュート
+* 📊 音声プログレス表示
+* 🖼️ 音声と画像の同期
+* 📡 リアルタイムオシロスコープ
+* 📖 PNG資料を含むExplanationページ
+* 💾 **IndexedDB** によるローカル保存
+* 📱 PC・モバイル対応
+
+### 🚀 起動方法
+
+```bash
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+python -m http.server 8000
+```
+
+ブラウザで以下を開きます。
+
+```text
+http://localhost:8000
+```
+
+### 🎧 音声のアップロード
+
+**Upload** ページから `.mp3` または `.wav` ファイルを選択してください。
+
+音声はサーバーではなく、ブラウザにローカル保存されます。
+
+---
+
+## 🌍 Language
+
+* 🇮🇩 Bahasa Indonesia
+* 🇨🇳 中文
+* 🇰🇷 한국어
+* 🇯🇵 日本語
