@@ -1,6 +1,7 @@
 # Golden Record
 
 live demo
+https://bahrizalmulyawan.github.io/voy2/
 
 A simple web-based audio experience for exploring, uploading, and playing audio files while synchronizing audio with visual content.
 
